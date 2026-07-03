@@ -31,10 +31,13 @@ interface EdgePath {
   labelY: number;
 }
 
+// Offset to match node rendering position
+const Y_OFFSET = 36;
+
 const PADDING = 50;
 const SWIMLANE_HEADER_HEIGHT = 36;
 /** Offset between swimlane container coordinates and node content coordinates */
-const NODE_Y_OFFSET = SWIMLANE_HEADER_HEIGHT;
+const NODE_Y_OFFSET = 36;
 
 /**
  * Compute an orthogonal (right-angle) SVG path from one point to another,
@@ -243,7 +246,7 @@ export default function FlowchartCanvas({ page, onNodeClick, highlightedNodeId }
   const [fitScale, setFitScale] = useState(1);
 
   // ── Coordinate normalization ──────────────────────────────────────
-  const { swimlanes, nodes, edges, canvasWidth, canvasHeight } = useMemo(() => {
+  const { swimlanes, nodes, edges, canvasWidth, canvasHeight, offsetX, offsetY } = useMemo(() => {
     if (!page || page.nodes.length === 0) {
       return {
         swimlanes: [] as NormalizedLane[],
@@ -251,6 +254,8 @@ export default function FlowchartCanvas({ page, onNodeClick, highlightedNodeId }
         edges: [] as Edge[],
         canvasWidth: 800,
         canvasHeight: 600,
+        offsetX: 0,
+        offsetY: 0,
       };
     }
 
@@ -303,6 +308,8 @@ export default function FlowchartCanvas({ page, onNodeClick, highlightedNodeId }
       edges: page.edges,
       canvasWidth: mxX - mnX + PADDING * 2,
       canvasHeight: mxY - mnY + PADDING * 2,
+      offsetX: mnX,
+      offsetY: mnY,
     };
   }, [page]);
 
@@ -348,12 +355,34 @@ export default function FlowchartCanvas({ page, onNodeClick, highlightedNodeId }
         // Compute entry point on target node
         const entryPt = computeEntryPoint(tgt, edge.entryX, edge.entryY);
 
-        // Build orthogonal path
-        const path = computeOrthogonalPath(exitPt.x, exitPt.y, entryPt.x, entryPt.y);
+        // Use draw.io waypoints when available
+        let path: string;
+        let labelX: number;
+        let labelY: number;
 
-        // Label placement — at midpoint of the path
-        const labelX = (exitPt.x + entryPt.x) / 2;
-        const labelY = (exitPt.y + entryPt.y) / 2;
+        if (edge.points && edge.points.length > 0) {
+          // Normalize waypoints same as nodes
+          const pts = edge.points.map(p => ({
+            x: p.x - offsetX + PADDING,
+            y: p.y - offsetY + PADDING + Y_OFFSET,
+          }));
+          // Build path: start → waypoints → end
+          const allPts = [
+            { x: exitPt.x, y: exitPt.y },
+            ...pts,
+            { x: entryPt.x, y: entryPt.y },
+          ];
+          path = allPts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+          // Label at midpoint of the center segment
+          const midIdx = Math.floor(allPts.length / 2);
+          labelX = (allPts[midIdx - 1].x + allPts[midIdx].x) / 2;
+          labelY = (allPts[midIdx - 1].y + allPts[midIdx].y) / 2;
+        } else {
+          // Fallback: algorithmic orthogonal routing
+          path = computeOrthogonalPath(exitPt.x, exitPt.y, entryPt.x, entryPt.y);
+          labelX = (exitPt.x + entryPt.x) / 2;
+          labelY = (exitPt.y + entryPt.y) / 2;
+        }
 
         return { path, label: edge.label, labelX, labelY };
       })

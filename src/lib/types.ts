@@ -27,6 +27,7 @@ export interface Edge {
   exitY?: number;
   entryX?: number;
   entryY?: number;
+  points?: Array<{x: number; y: number}>;
 }
 
 export interface Page {

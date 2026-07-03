@@ -231,6 +231,7 @@ export function parsePage(raw: RawPage, index: number): Page {
       exitY: parseFloatFromStyle(style, 'exitY'),
       entryX: parseFloatFromStyle(style, 'entryX'),
       entryY: parseFloatFromStyle(style, 'entryY'),
+      points: e.points || undefined,
     };
   });
 
