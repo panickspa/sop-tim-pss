@@ -122,10 +122,10 @@ export default function FlowchartCanvas({ page, onNodeClick, highlightedNodeId }
         // Side-to-side connection
         if (tgtCX > srcX) {
           tgtX = tgt.normX;
-          tgtY = tgtCY;
+          tgtY = tgt.normY + tgt.height / 2;
         } else {
           tgtX = tgt.normX + tgt.width;
-          tgtY = tgtCY;
+          tgtY = tgt.normY + tgt.height / 2;
         }
       }
 

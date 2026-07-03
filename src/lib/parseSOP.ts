@@ -82,23 +82,24 @@ export function shortPageName(name: string, index: number): string {
   return trimmed;
 }
 
+const ROLE_NAMES = [
+  'Sekretaris Utama',
+  'Kedeputian Bidang Teknis',
+  'Tim Pelatihan Sensus Survei Pusdiklat',
+  'Learning Partner',
+  'Subject Matter',
+  'Peserta',
+  'Manajer Kelas',
+  'Pengajar',
+  'Tim TIPD Pusdiklat',
+  'Sekretaris',
+  'Tim Keuangan Pusdiklat',
+  'Tim Humas',
+  'Eselon',
+];
+
 export function isRoleSwimlane(lane: RawSwLane): boolean {
-  const roleNames = [
-    'Sekretaris Utama',
-    'Kedeputian Bidang Teknis',
-    'Tim Pelatihan Sensus Survei Pusdiklat',
-    'Learning Partner',
-    'Subject Matter',
-    'Peserta',
-    'Manajer Kelas',
-    'Pengajar',
-    'Tim TIPD Pusdiklat',
-    'Sekretaris',
-    'Tim Keuangan Pusdiklat',
-    'Tim Humas',
-    'Eselon',
-  ];
-  return roleNames.some((r) => lane.name.trim().startsWith(r));
+  return ROLE_NAMES.some((r) => lane.name.trim().startsWith(r));
 }
 
 const swimlaneColors = [
@@ -148,7 +149,7 @@ export function parsePage(raw: RawPage, index: number): Page {
     height: l.geometry.height,
   }));
 
-  // Calculate absolute positions for nodes
+  // Calculate absolute positions for nodes and assign to swimlanes
   const nodes: FlowNode[] = raw.nodes
     .filter((n) => {
       const style = n.style || '';
@@ -170,17 +171,21 @@ export function parsePage(raw: RawPage, index: number): Page {
 
       const nodeType = getNodeType(n);
 
-      // Find which swimlane this node belongs to
-      let swimlaneId = n.belongs_to || n.parent || '';
-      // If parent is a pool/phase swimlane (not a role), check if node is inside a role lane
-      if (swimlaneId && !isRoleSwimlane({ id: swimlaneId, name: '', geometry: { x: 0, y: 0, width: 0, height: 0 } } as RawSwLane)) {
-        // Find the role lane that contains this node's x position
+      // Determine which role swimlane this node belongs to
+      // 1. Check if parent/belongs_to is a role swimlane
+      let swimlaneId: string | undefined;
+      const directLaneId = n.belongs_to || n.parent || '';
+      const directLane = parentMap.get(directLaneId) as RawSwLane | undefined;
+
+      if (directLane && isRoleSwimlane(directLane)) {
+        swimlaneId = directLane.id;
+      } else if (roleLanes.length > 0) {
+        // 2. Position-based detection: find which role lane contains this node's x position
+        // Use a small margin for the x-range check
         const containingLane = roleLanes.find((l) => {
-          if (!n.belongs_to) {
-            // Check by position
-            return absX >= l.geometry.x && absX <= l.geometry.x + l.geometry.width;
-          }
-          return false;
+          const laneX = l.geometry.x;
+          const laneW = l.geometry.width;
+          return absX >= laneX - 5 && absX < laneX + laneW + 5;
         });
         if (containingLane) {
           swimlaneId = containingLane.id;
