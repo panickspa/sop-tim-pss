@@ -33,6 +33,8 @@ interface EdgePath {
 
 const PADDING = 50;
 const SWIMLANE_HEADER_HEIGHT = 36;
+/** Offset between swimlane container coordinates and node content coordinates */
+const NODE_Y_OFFSET = SWIMLANE_HEADER_HEIGHT;
 
 /**
  * Compute an orthogonal (right-angle) SVG path from one point to another,
@@ -121,44 +123,39 @@ function computeExitPoint(
   node: NormalizedNode,
   exitX: number | undefined,
   exitY: number | undefined,
-  label: string,
+  label?: string,
 ): { x: number; y: number } {
-  // If explicit exit coordinates are available, use them
+  const ny = node.normY + NODE_Y_OFFSET;
+
   if (exitX !== undefined && exitY !== undefined) {
-    // exitX/exitY define a point on the perimeter
+    // Use explicit exit point from draw.io
+    // exitX/exitY are ratios 0-1 within the node bounding box
+    const cx = node.normX + node.width / 2;
+    const cy = ny + node.height / 2;
     if (exitY === 0 || exitY === 1) {
       return {
         x: node.normX + node.width * exitX,
-        y: exitY === 0 ? node.normY : node.normY + node.height,
+        y: exitY === 0 ? ny : ny + node.height,
       };
     }
     if (exitX === 0 || exitX === 1) {
       return {
         x: exitX === 0 ? node.normX : node.normX + node.width,
-        y: node.normY + node.height * exitY,
+        y: ny + node.height * exitY,
       };
     }
-    // Default: compute point on the perimeter
-    // The normalized (exitX, exitY) can be mapped to a point on the rectangle perimeter
-    // by extending from center to intersection with the perimeter
-    const cx = node.normX + node.width / 2;
-    const cy = node.normY + node.height / 2;
-    // Convert to relative position where (0,0) is center and (1,1) is bottom-right
-    const rx = (exitX - 0.5) * 2; // -1 to 1
-    const ry = (exitY - 0.5) * 2; // -1 to 1
-    // Scale to node dimensions
-    const px = rx * (node.width / 2);
-    const py = ry * (node.height / 2);
-    // Intersection with rectangle edge
+    // Compute point on the perimeter
+    const rx = (exitX - 0.5) * 2;
+    const ry = (exitY - 0.5) * 2;
     const hScale = node.width / 2;
     const vScale = node.height / 2;
     const absRx = Math.abs(rx);
     const absRy = Math.abs(ry);
     let scale: number;
     if (absRx * vScale >= absRy * hScale) {
-      scale = hScale / absRx;
+      scale = hScale / (absRx || 0.001);
     } else {
-      scale = vScale / absRy;
+      scale = vScale / (absRy || 0.001);
     }
     return {
       x: cx + rx * scale,
@@ -171,24 +168,22 @@ function computeExitPoint(
   const isNo = label && /^(Tidak|Belum|Ditolak)$/i.test(label);
 
   if (isYes) {
-    // Right side center
     return {
       x: node.normX + node.width,
-      y: node.normY + node.height / 2,
+      y: ny + node.height / 2,
     };
   }
   if (isNo) {
-    // Bottom side center
     return {
       x: node.normX + node.width / 2,
-      y: node.normY + node.height,
+      y: ny + node.height,
     };
   }
 
   // Default: bottom center
   return {
     x: node.normX + node.width / 2,
-    y: node.normY + node.height,
+    y: ny + node.height,
   };
 }
 
@@ -200,22 +195,23 @@ function computeEntryPoint(
   entryX: number | undefined,
   entryY: number | undefined,
 ): { x: number; y: number } {
+  const ny = node.normY + NODE_Y_OFFSET;
+
   if (entryX !== undefined && entryY !== undefined) {
     if (entryY === 0 || entryY === 1) {
       return {
         x: node.normX + node.width * entryX,
-        y: entryY === 0 ? node.normY : node.normY + node.height,
+        y: entryY === 0 ? ny : ny + node.height,
       };
     }
     if (entryX === 0 || entryX === 1) {
       return {
         x: entryX === 0 ? node.normX : node.normX + node.width,
-        y: node.normY + node.height * entryY,
+        y: ny + node.height * entryY,
       };
     }
-    // Map to perimeter point using same algorithm as exit
     const cx = node.normX + node.width / 2;
-    const cy = node.normY + node.height / 2;
+    const cy = ny + node.height / 2;
     const rx = (entryX - 0.5) * 2;
     const ry = (entryY - 0.5) * 2;
     const absRx = Math.abs(rx);
@@ -237,7 +233,7 @@ function computeEntryPoint(
   // Default: top center
   return {
     x: node.normX + node.width / 2,
-    y: node.normY,
+    y: ny,
   };
 }
 
