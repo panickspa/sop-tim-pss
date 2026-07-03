@@ -36,6 +36,7 @@ interface RawPage {
   nodes: RawNode[];
   edges: RawEdge[];
   textboxes?: unknown[];
+  containers?: RawNode[];
 }
 
 function getNodeType(node: RawNode): string {
@@ -128,12 +129,15 @@ export function getSwimlaneColor(index: number): string {
 export function parsePage(raw: RawPage, index: number): Page {
   const parentMap = new Map<string, RawSwLane | RawNode>();
 
-  // Build parent map from all swimlanes AND nodes
+  // Build parent map from all swimlanes, nodes, AND containers
   for (const lane of raw.swimlanes) {
     parentMap.set(lane.id, lane);
   }
   for (const node of raw.nodes) {
     parentMap.set(node.id, node);
+  }
+  for (const container of (raw.containers || [])) {
+    parentMap.set(container.id, container);
   }
 
   // Filter to role swimlanes only, sorted by x position
@@ -161,12 +165,12 @@ export function parsePage(raw: RawPage, index: number): Page {
       const parentId = n.parent || n.belongs_to || '';
       const parent = parentMap.get(parentId);
 
-      let absX = n.geometry.x;
-      let absY = n.geometry.y;
+      let absX = n.geometry.x ?? 0;
+      let absY = n.geometry.y ?? 0;
 
       if (parent && 'geometry' in parent) {
-        absX = parent.geometry.x + n.geometry.x;
-        absY = parent.geometry.y + n.geometry.y;
+        absX = parent.geometry.x + (n.geometry.x ?? 0);
+        absY = parent.geometry.y + (n.geometry.y ?? 0);
       }
 
       const nodeType = getNodeType(n);

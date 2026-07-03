@@ -2869,6 +2869,23 @@
         "belongs_to": null,
         "parent": "IahHwkybUxhvQTex84i4-1"
       }
+    ],
+    "containers": [
+      {
+        "id": "bWeIbLgbYQxGgjh-E67L-0",
+        "value": "",
+        "style": "group",
+        "geometry": {
+          "x": 177.0,
+          "y": 6859.0,
+          "width": 46.0,
+          "height": 46.0,
+          "relative": "0"
+        },
+        "is_rhombus": false,
+        "belongs_to": "IahHwkybUxhvQTex84i4-2",
+        "parent": "IahHwkybUxhvQTex84i4-2"
+      }
     ]
   },
   {
@@ -3244,7 +3261,8 @@
         "parent": "1"
       }
     ],
-    "textboxes": []
+    "textboxes": [],
+    "containers": []
   },
   {
     "name": "General Flow w Descripttion - Activity Diagram",
@@ -3710,7 +3728,8 @@
         "belongs_to": null,
         "parent": "HsyAN0KUePkg_3jScThA-1"
       }
-    ]
+    ],
+    "containers": []
   },
   {
     "name": "01  Pengajuan Pelatihan",
@@ -4250,6 +4269,23 @@
         "belongs_to": null,
         "parent": "A5GDa0JDbxxRnORDjmpz-1"
       }
+    ],
+    "containers": [
+      {
+        "id": "7wUSR7yVhkTCJmDqpQkl-0",
+        "value": "",
+        "style": "group",
+        "geometry": {
+          "x": 227.0,
+          "y": 353.0,
+          "width": 46.0,
+          "height": 46.0,
+          "relative": "0"
+        },
+        "is_rhombus": false,
+        "belongs_to": "A5GDa0JDbxxRnORDjmpz-177",
+        "parent": "A5GDa0JDbxxRnORDjmpz-177"
+      }
     ]
   },
   {
@@ -4648,7 +4684,7 @@
     "textboxes": [
       {
         "id": "kM7CTZvaYPTDMUo25KaH-158",
-        "value": "<h1 style=\"margin-top: 0px;\">02-Persiapan Instrumen dan Kelas Pelatihan</h1><p>Maksimal H-5 MOOC</p><p>Menambahkan pengajar, peserta sit-in, manajer kelas di e-WARKOP maksimal H-7 MOOC</p><p>Panduan Membuat LMS e-WARKOP Manajer : https://ptp24.my.canva.site/e-warkopmanagerguide</p><p>Panduan GOJAGS : https://panduangojags.my.canva.site/home</p><p> </p><p style=\"text-align: justify;\">Tahap Persiapan Instrumen dan Kelas Pelatihan, yaitu Tim Pelatihan Sensus Survei Pusdiklat terdapat lima aktor utama yang berkolaborasi secara sinergis yaitu, Subject Matter (SM), Learning Partner, Tim TIPD Pusdiklat, dan Manajer Kelas. Kolaborasi ini diawali dengan penyiapan administrasi dan materi pembelajaran yang komprehensif, mencakup pembuatan jadwal pelatihan, penyusunan daftar peserta, hingga penyediaan instrumen seperti tugas/kuis MOOC, buku pedoman, bahan tayang, soal <i data-path-to-node=\"0\" data-index-in-node=\"544\">pre-test dan <i data-path-to-node=\"0\" data-index-in-node=\"557\">post-test, materi pendalaman, tautan Zoom dan <i data-path-to-node=\"0\" data-index-in-node=\"603\">streaming YouTube, serta pembuatan halaman sertifikat. Setelah seluruh materi dan kebutuhan kelas siap, proses dilanjutkan dengan pendaftaran manajer kelas, pengajar, dan peserta ke dalam sistem terintegrasi, yakni platform Gojags dan e-WARKOP. Tahap administrasi pengguna ini kemudian diikuti dengan eksekusi digital berupa pembuatan kelas secara terstruktur di e-WARKOP dan finalisasi sistem di Gojags. Sebagai langkah validasi akhir dari alur persiapan ini—yang ditargetkan selesai maksimal H-5 sebelum MOOC dimulai—dilakukan tahapan verifikasi untuk memeriksa kelengkapan seluruh bahan pelatihan di kedua platform tersebut guna memastikan bahwa semua instrumen telah valid, berstatus lengkap, dan siap digunakan untuk menunjang kelancaran pelatihan.</p>",
+        "value": "<h1 style=\"margin-top: 0px;\">02-Persiapan Instrumen dan Kelas Pelatihan</h1><p>Maksimal H-5 MOOC</p><p>Menambahkan pengajar, peserta sit-in, manajer kelas di e-WARKOP maksimal H-7 MOOC</p><p>Panduan Membuat LMS e-WARKOP Manajer : https://ptp24.my.canva.site/e-warkopmanagerguide</p><p>Panduan GOJAGS : https://panduangojags.my.canva.site/home</p><p> </p><p style=\"text-align: justify;\">Tahap Persiapan Instrumen dan Kelas Pelatihan, yaitu Tim Pelatihan Sensus Survei Pusdiklat terdapat lima aktor utama yang berkolaborasi secara sinergis yaitu, Subject Matter (SM), Learning Partner, Tim TIPD Pusdiklat, dan Manajer Kelas. Kolaborasi ini diawali dengan penyiapan administrasi dan materi pembelajaran yang komprehensif, mencakup pembuatan jadwal pelatihan, penyusunan daftar peserta, hingga penyediaan instrumen seperti tugas/kuis MOOC, buku pedoman, bahan tayang, soal <i data-path-to-node=\"0\" data-index-in-node=\"544\">pre-test dan <i data-path-to-node=\"0\" data-index-in-node=\"557\">post-test, materi pendalaman, tautan Zoom dan <i data-path-to-node=\"0\" data-index-in-node=\"603\">streaming YouTube, serta pembuatan halaman sertifikat. Setelah seluruh materi dan kebutuhan kelas siap, proses dilanjutkan dengan pendaftaran manajer kelas, pengajar, dan peserta ke dalam sistem terintegrasi, yakni platform Gojags dan e-WARKOP. Tahap administrasi pengguna ini kemudian diikuti dengan eksekusi digital berupa pembuatan kelas secara terstruktur di e-WARKOP dan finalisasi sistem di Gojags. Sebagai langkah validasi akhir dari alur persiapan ini\u2014yang ditargetkan selesai maksimal H-5 sebelum MOOC dimulai\u2014dilakukan tahapan verifikasi untuk memeriksa kelengkapan seluruh bahan pelatihan di kedua platform tersebut guna memastikan bahwa semua instrumen telah valid, berstatus lengkap, dan siap digunakan untuk menunjang kelancaran pelatihan.</p>",
         "style": "text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;",
         "geometry": {
           "x": 42.0,
@@ -4661,7 +4697,8 @@
         "belongs_to": null,
         "parent": "1"
       }
-    ]
+    ],
+    "containers": []
   },
   {
     "name": "03-Pemanggilan Peserta",
@@ -5068,7 +5105,8 @@
         "belongs_to": null,
         "parent": "1"
       }
-    ]
+    ],
+    "containers": []
   },
   {
     "name": "04-Pemenuhan Berkas Peserta",
@@ -5366,7 +5404,7 @@
     "textboxes": [
       {
         "id": "BWMdF9dK5DCiS8lCmXv3-406",
-        "value": "<h1 style=\"margin-top: 0px;\">04-Pemenuhan Berkas Peserta</h1> Pemenuhan berkas peserta dilakukan sampai hari terakhir MOOC <h3 data-path-to-node=\"3\"><b data-path-to-node=\"3\" data-index-in-node=\"0\">Alur Proses Pemenuhan Berkas Peserta:</h3><p data-path-to-node=\"4\"><b data-path-to-node=\"4\" data-index-in-node=\"0\">1. Pengisian Biodata dan Berkas (Oleh Peserta) Setelah tahapan sebelumnya (02-B dan 03-B) selesai, proses dilanjutkan oleh <b data-path-to-node=\"4\" data-index-in-node=\"123\">Peserta. Peserta diwajibkan untuk masuk ke sistem <b data-path-to-node=\"4\" data-index-in-node=\"173\">GOJAGS guna <b data-path-to-node=\"4\" data-index-in-node=\"185\">Melengkapi Biodata dan Berkas Pelatihan Peserta.</p><p data-path-to-node=\"5\"><b data-path-to-node=\"5\" data-index-in-node=\"0\">2. Proses Lanjutan (Berjalan Paralel) Setelah peserta melengkapi data di GOJAGS, terdapat dua alur proses yang terjadi:</p><ul data-path-to-node=\"6\"><li><p data-path-to-node=\"6,0,0\"><b data-path-to-node=\"6,0,0\" data-index-in-node=\"0\">Validasi oleh Manajer Kelas: <b data-path-to-node=\"6,0,0\" data-index-in-node=\"29\">Manajer Kelas akan bertugas <b data-path-to-node=\"6,0,0\" data-index-in-node=\"57\">Melakukan Validasi Kelengkapan Biodata dan Berkas Pelatihan Peserta di Gojags. Di sini terdapat proses pengecekan: <b data-path-to-node=\"6,0,0\" data-index-in-node=\"172\">Apakah Lengkap?</p><ul data-path-to-node=\"6,0,1\"><li><p data-path-to-node=\"6,0,1,0,0\"><b data-path-to-node=\"6,0,1,0,0\" data-index-in-node=\"0\">Jika Belum Lengkap: Manajer Kelas akan <b data-path-to-node=\"6,0,1,0,0\" data-index-in-node=\"39\">Menghubungi Peserta Untuk Melengkapi Berkas. Peserta kemudian harus kembali ke sistem GOJAGS untuk memperbaiki atau melengkapi data yang kurang.</p></li><li><p data-path-to-node=\"6,0,1,1,0\"><b data-path-to-node=\"6,0,1,1,0\" data-index-in-node=\"0\">Jika Lengkap: Jika berkas sudah divalidasi dan dinyatakan \"Lengkap\", alur akan dilanjutkan ke tahap pelaksanaan pelatihan (MOOC).</p></li></ul></li><li><p data-path-to-node=\"6,1,0\"><b data-path-to-node=\"6,1,0\" data-index-in-node=\"0\">Self-Enrollment oleh Peserta: Setelah melengkapi data di GOJAGS, <b data-path-to-node=\"6,1,0\" data-index-in-node=\"65\">Peserta juga harus menuju ke sistem <b data-path-to-node=\"6,1,0\" data-index-in-node=\"101\">e-Warkop untuk <b data-path-to-node=\"6,1,0\" data-index-in-node=\"116\">Melakukan Self-Enrollment melalui link dan enrollment key yang tersedia di Gojags.</p></li></ul><p data-path-to-node=\"7\"><b data-path-to-node=\"7\" data-index-in-node=\"0\">3. Pelaksanaan Pembelajaran MOOC Apabila kedua syarat di atas telah terpenuhi—yakni berkas telah divalidasi <b data-path-to-node=\"7\" data-index-in-node=\"108\">Lengkap oleh Manajer Kelas <i data-path-to-node=\"7\" data-index-in-node=\"135\">dan peserta telah berhasil melakukan pendaftaran (<i data-path-to-node=\"7\" data-index-in-node=\"185\">Self-Enrollment) di e-Warkop—maka <b data-path-to-node=\"7\" data-index-in-node=\"219\">Peserta Melakukan MOOC (3-5 Hari).</p><p data-path-to-node=\"8\"><b data-path-to-node=\"8\" data-index-in-node=\"0\">4. Tahap Selanjutnya Setelah masa MOOC selesai, proses ini bermuara pada konektor <b data-path-to-node=\"8\" data-index-in-node=\"82\">04, yang menandakan bahwa peserta siap untuk melanjutkan ke tahapan atau aktivitas pelatihan berikutnya.</p>",
+        "value": "<h1 style=\"margin-top: 0px;\">04-Pemenuhan Berkas Peserta</h1> Pemenuhan berkas peserta dilakukan sampai hari terakhir MOOC <h3 data-path-to-node=\"3\"><b data-path-to-node=\"3\" data-index-in-node=\"0\">Alur Proses Pemenuhan Berkas Peserta:</h3><p data-path-to-node=\"4\"><b data-path-to-node=\"4\" data-index-in-node=\"0\">1. Pengisian Biodata dan Berkas (Oleh Peserta) Setelah tahapan sebelumnya (02-B dan 03-B) selesai, proses dilanjutkan oleh <b data-path-to-node=\"4\" data-index-in-node=\"123\">Peserta. Peserta diwajibkan untuk masuk ke sistem <b data-path-to-node=\"4\" data-index-in-node=\"173\">GOJAGS guna <b data-path-to-node=\"4\" data-index-in-node=\"185\">Melengkapi Biodata dan Berkas Pelatihan Peserta.</p><p data-path-to-node=\"5\"><b data-path-to-node=\"5\" data-index-in-node=\"0\">2. Proses Lanjutan (Berjalan Paralel) Setelah peserta melengkapi data di GOJAGS, terdapat dua alur proses yang terjadi:</p><ul data-path-to-node=\"6\"><li><p data-path-to-node=\"6,0,0\"><b data-path-to-node=\"6,0,0\" data-index-in-node=\"0\">Validasi oleh Manajer Kelas: <b data-path-to-node=\"6,0,0\" data-index-in-node=\"29\">Manajer Kelas akan bertugas <b data-path-to-node=\"6,0,0\" data-index-in-node=\"57\">Melakukan Validasi Kelengkapan Biodata dan Berkas Pelatihan Peserta di Gojags. Di sini terdapat proses pengecekan: <b data-path-to-node=\"6,0,0\" data-index-in-node=\"172\">Apakah Lengkap?</p><ul data-path-to-node=\"6,0,1\"><li><p data-path-to-node=\"6,0,1,0,0\"><b data-path-to-node=\"6,0,1,0,0\" data-index-in-node=\"0\">Jika Belum Lengkap: Manajer Kelas akan <b data-path-to-node=\"6,0,1,0,0\" data-index-in-node=\"39\">Menghubungi Peserta Untuk Melengkapi Berkas. Peserta kemudian harus kembali ke sistem GOJAGS untuk memperbaiki atau melengkapi data yang kurang.</p></li><li><p data-path-to-node=\"6,0,1,1,0\"><b data-path-to-node=\"6,0,1,1,0\" data-index-in-node=\"0\">Jika Lengkap: Jika berkas sudah divalidasi dan dinyatakan \"Lengkap\", alur akan dilanjutkan ke tahap pelaksanaan pelatihan (MOOC).</p></li></ul></li><li><p data-path-to-node=\"6,1,0\"><b data-path-to-node=\"6,1,0\" data-index-in-node=\"0\">Self-Enrollment oleh Peserta: Setelah melengkapi data di GOJAGS, <b data-path-to-node=\"6,1,0\" data-index-in-node=\"65\">Peserta juga harus menuju ke sistem <b data-path-to-node=\"6,1,0\" data-index-in-node=\"101\">e-Warkop untuk <b data-path-to-node=\"6,1,0\" data-index-in-node=\"116\">Melakukan Self-Enrollment melalui link dan enrollment key yang tersedia di Gojags.</p></li></ul><p data-path-to-node=\"7\"><b data-path-to-node=\"7\" data-index-in-node=\"0\">3. Pelaksanaan Pembelajaran MOOC Apabila kedua syarat di atas telah terpenuhi\u2014yakni berkas telah divalidasi <b data-path-to-node=\"7\" data-index-in-node=\"108\">Lengkap oleh Manajer Kelas <i data-path-to-node=\"7\" data-index-in-node=\"135\">dan peserta telah berhasil melakukan pendaftaran (<i data-path-to-node=\"7\" data-index-in-node=\"185\">Self-Enrollment) di e-Warkop\u2014maka <b data-path-to-node=\"7\" data-index-in-node=\"219\">Peserta Melakukan MOOC (3-5 Hari).</p><p data-path-to-node=\"8\"><b data-path-to-node=\"8\" data-index-in-node=\"0\">4. Tahap Selanjutnya Setelah masa MOOC selesai, proses ini bermuara pada konektor <b data-path-to-node=\"8\" data-index-in-node=\"82\">04, yang menandakan bahwa peserta siap untuk melanjutkan ke tahapan atau aktivitas pelatihan berikutnya.</p>",
         "style": "text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;",
         "geometry": {
           "x": 1690.0,
@@ -5379,7 +5417,8 @@
         "belongs_to": null,
         "parent": "1"
       }
-    ]
+    ],
+    "containers": []
   },
   {
     "name": "05-Pembukaan Pelatihan",
@@ -5704,7 +5743,8 @@
         "belongs_to": null,
         "parent": "1"
       }
-    ]
+    ],
+    "containers": []
   },
   {
     "name": "06-Proses Pembelajaran Pelatihan",
@@ -6296,7 +6336,8 @@
         "belongs_to": null,
         "parent": "1"
       }
-    ]
+    ],
+    "containers": []
   },
   {
     "name": "07-Pemenuhan Administrasi",
@@ -6761,7 +6802,8 @@
         "belongs_to": null,
         "parent": "1"
       }
-    ]
+    ],
+    "containers": []
   },
   {
     "name": "08-SPJ Honor Pengajar",
@@ -7147,6 +7189,23 @@
         "belongs_to": null,
         "parent": "QgYXjs57AturgsIuPCR9-1"
       }
+    ],
+    "containers": [
+      {
+        "id": "N5YgyqpafTMmoMM6vU_z-0",
+        "value": "",
+        "style": "group",
+        "geometry": {
+          "x": 130.0,
+          "y": 878.0,
+          "width": 46.0,
+          "height": 46.0,
+          "relative": "0"
+        },
+        "is_rhombus": false,
+        "belongs_to": "QgYXjs57AturgsIuPCR9-219",
+        "parent": "QgYXjs57AturgsIuPCR9-219"
+      }
     ]
   },
   {
@@ -7480,6 +7539,23 @@
         "is_rhombus": false,
         "belongs_to": null,
         "parent": "LEK85rBU8HHVDI_zsro6-1"
+      }
+    ],
+    "containers": [
+      {
+        "id": "JTEf53S41wOG5rU-p0V2-3",
+        "value": "",
+        "style": "group",
+        "geometry": {
+          "x": 690.5,
+          "y": 560.0,
+          "width": 46.0,
+          "height": 46.0,
+          "relative": "0"
+        },
+        "is_rhombus": false,
+        "belongs_to": "LEK85rBU8HHVDI_zsro6-115",
+        "parent": "LEK85rBU8HHVDI_zsro6-115"
       }
     ]
   }
