@@ -204,13 +204,31 @@ export function parsePage(raw: RawPage, index: number): Page {
       };
     });
 
+  // Parse float from style string like "exitX=0.5;exitY=1"
+  function parseFloatFromStyle(style: string, key: string): number | undefined {
+    const regex = new RegExp(`${key}=([^;\\s]+)`);
+    const match = style.match(regex);
+    if (match) {
+      const val = parseFloat(match[1]);
+      if (!isNaN(val)) return val;
+    }
+    return undefined;
+  }
+
   // Parse edges
-  const edges: Edge[] = raw.edges.map((e) => ({
-    id: e.id,
-    source: e.source,
-    target: e.target,
-    label: e.label || '',
-  }));
+  const edges: Edge[] = raw.edges.map((e) => {
+    const style = e.style || '';
+    return {
+      id: e.id,
+      source: e.source,
+      target: e.target,
+      label: e.label || '',
+      exitX: parseFloatFromStyle(style, 'exitX'),
+      exitY: parseFloatFromStyle(style, 'exitY'),
+      entryX: parseFloatFromStyle(style, 'entryX'),
+      entryY: parseFloatFromStyle(style, 'entryY'),
+    };
+  });
 
   return {
     name: raw.name,

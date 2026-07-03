@@ -51,7 +51,7 @@ export default function Home() {
     setSelectedNode(node);
     // Scroll to show the highlighted node
     setTimeout(() => {
-      const el = document.querySelector(`[title="${node.text}"]`);
+      const el = document.querySelector(`[data-node-id="${node.id}"]`);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }

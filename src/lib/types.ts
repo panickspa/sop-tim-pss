@@ -23,6 +23,10 @@ export interface Edge {
   source: string;
   target: string;
   label: string;
+  exitX?: number;
+  exitY?: number;
+  entryX?: number;
+  entryY?: number;
 }
 
 export interface Page {
